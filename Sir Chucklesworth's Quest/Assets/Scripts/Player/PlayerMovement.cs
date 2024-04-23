@@ -6,7 +6,7 @@ public class PlayerMovement : MonoBehaviour
     public float dashSpeed = 20.0f;
     public float dashTime = 0.1f;
     private Rigidbody2D rb;
-    private Vector2 moveDirection;
+    public Vector2 moveDirection;
     private float dashTimeLeft;
     private bool isDashing;
     public static bool canFollow;
@@ -22,9 +22,10 @@ public class PlayerMovement : MonoBehaviour
         ProcessInputs();
         if (Input.GetKeyDown(KeyCode.F))
         {
-            canFollow = !canFollow;  // Toggle follow state
+            canFollow = !canFollow;
         }
     }
+
 
     void FixedUpdate()
     {

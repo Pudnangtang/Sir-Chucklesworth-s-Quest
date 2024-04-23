@@ -15,7 +15,6 @@ public class NPCFollowTrigger : MonoBehaviour
     {
         if (playerInRange)
         {
-            // Check if visualCue has been assigned before trying to set it active or inactive
             if (visualCue != null)
             {
                 visualCue.SetActive(true);
@@ -27,16 +26,8 @@ public class NPCFollowTrigger : MonoBehaviour
 
             if (Input.GetKeyDown(KeyCode.F))
             {
-                // Check if the NPCFollow component exists before trying to access it
-                NPCFollow npcFollow = GetComponent<NPCFollow>();
-                if (npcFollow != null)
-                {
-                    npcFollow.isFollowing = !npcFollow.isFollowing;
-                }
-                else
-                {
-                    Debug.LogError("NPCFollow component not found on the GameObject");
-                }
+                //call the npc follow script and start following the player
+                NPCFollow.FollowPlayer();
             }
         }
         else
@@ -62,10 +53,6 @@ public class NPCFollowTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = false;
-            if (GetComponent<NPCFollow>() != null)
-            { // Check if the NPCFollow component is not null
-                GetComponent<NPCFollow>().isFollowing = false;  // Stop following when player exits range
-            }
         }
     }
 
