@@ -3,28 +3,26 @@ using UnityEngine;
 public class PlayerMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f;
-    public float dashSpeed = 20.0f; 
-    public float dashTime = 0.1f; 
-
+    public float dashSpeed = 20.0f;
+    public float dashTime = 0.1f;
     private Rigidbody2D rb;
     private Vector2 moveDirection;
     private float dashTimeLeft;
     private bool isDashing;
-
     public static bool canFollow;
 
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        canFollow = false;  // Ensure initial state is consistent
     }
 
     void Update()
     {
         ProcessInputs();
-
         if (Input.GetKeyDown(KeyCode.F))
         {
-            canFollow = !canFollow;
+            canFollow = !canFollow;  // Toggle follow state
         }
     }
 
@@ -37,9 +35,7 @@ public class PlayerMovement : MonoBehaviour
     {
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
-
         moveDirection = new Vector2(moveX, moveY).normalized;
-
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing)
         {
             isDashing = true;
