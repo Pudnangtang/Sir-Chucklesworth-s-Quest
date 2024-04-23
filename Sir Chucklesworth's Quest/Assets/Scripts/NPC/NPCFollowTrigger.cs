@@ -13,28 +13,13 @@ public class NPCFollowTrigger : MonoBehaviour
 
     private void Update()
     {
-        if (playerInRange)
+        if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
-            if (visualCue != null)
+            NPCFollow npcFollow = FindObjectOfType<NPCFollow>(); // Find the NPC's follow script
+            if (npcFollow != null)
             {
-                visualCue.SetActive(true);
-            }
-            else
-            {
-                Debug.LogError("Visual Cue GameObject is not assigned in the Inspector");
-            }
-
-            if (Input.GetKeyDown(KeyCode.F))
-            {
-                //call the npc follow script and start following the player
-                NPCFollow.FollowPlayer();
-            }
-        }
-        else
-        {
-            if (visualCue != null)
-            {
-                visualCue.SetActive(false);
+                npcFollow.following = !npcFollow.following; // Toggle the NPC's following state
+                visualCue.SetActive(npcFollow.following); // Set the visual cue based on the following state
             }
         }
     }
@@ -45,6 +30,7 @@ public class NPCFollowTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = true;
+            visualCue.SetActive(true);
         }
     }
 
@@ -53,6 +39,7 @@ public class NPCFollowTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = false;
+            visualCue.SetActive(false);
         }
     }
 
