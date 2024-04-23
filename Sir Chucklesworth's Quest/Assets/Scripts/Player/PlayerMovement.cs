@@ -24,7 +24,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (Input.GetKeyDown(KeyCode.F))
         {
-            canFollow = true;
+            canFollow = !canFollow;
         }
     }
 

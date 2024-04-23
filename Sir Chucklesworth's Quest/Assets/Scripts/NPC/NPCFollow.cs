@@ -34,7 +34,8 @@ public class NPCFollow : MonoBehaviour
     {
         if (player != null)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+            Vector3 followPosition = player.position - (player.forward * 1.5f); 
+            transform.position = Vector2.MoveTowards(transform.position, followPosition, speed * Time.deltaTime);
         }
     }
 }

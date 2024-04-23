@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class NPCFollowTrigger : MonoBehaviour
@@ -7,22 +5,22 @@ public class NPCFollowTrigger : MonoBehaviour
     [Header("Visual Cue")]
     [SerializeField] private GameObject visualCue;
 
-    private bool playerInRange;
+    private bool playerInRange = false;
 
     private void Awake()
     {
-        playerInRange = false;
         visualCue.SetActive(false);
     }
 
     private void Update()
     {
-        if(playerInRange) 
+        if (playerInRange)
         {
             visualCue.SetActive(true);
+            Debug.Log("IN RANGE OF NPC VISUAL CUE ACTIVE");
             if (Input.GetKeyDown(KeyCode.F))
             {
-                NPCFollow.FollowPlayer();
+                GetComponent<NPCFollow>().FollowPlayer();
             }
         }
         else
@@ -30,7 +28,8 @@ public class NPCFollowTrigger : MonoBehaviour
             visualCue.SetActive(false);
         }
     }
-    private void OnTriggerEnter(Collider collider)
+
+    private void OnTriggerEnter2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
@@ -38,7 +37,7 @@ public class NPCFollowTrigger : MonoBehaviour
         }
     }
 
-    private void OnTriggerExit(Collider collider)
+    private void OnTriggerExit2D(Collider2D collider)
     {
         if (collider.gameObject.tag == "Player")
         {
