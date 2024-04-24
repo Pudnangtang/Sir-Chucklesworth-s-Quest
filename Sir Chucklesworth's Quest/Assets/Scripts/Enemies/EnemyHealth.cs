@@ -5,6 +5,8 @@ public class EnemyHealth : MonoBehaviour
     public int maxHealth = 100;
     private int currentHealth;
 
+    public GameObject bloodEffect;
+
     void Start()
     {
         currentHealth = maxHealth;
@@ -12,6 +14,8 @@ public class EnemyHealth : MonoBehaviour
 
     public void TakeDamage(int damageAmount)
     {
+        //play hurt sound
+        Instantiate(bloodEffect, transform.position, Quaternion.identity);
         currentHealth -= damageAmount;
         if (currentHealth <= 0)
         {

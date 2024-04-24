@@ -1,61 +1,45 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
 {
-    private GameObject attackArea = default;
+    private float timeBtwAttack;
+    public float startTimeBtwAttack;
 
-    private bool attacking = false;
+    public Transform attackPos;
+    public LayerMask whatIsEnemies;
+    public float attackRange;
+    public int damage;
 
-    private float timeToAttack = 0.25f;
-    private float timer = 0f;
+    public CameraShake cameraShake;
+    public Animator playerAnim;
 
-    public int attackDamage = 10;
-
-    // Start is called before the first frame update
-    void Start()
-    {
-        attackArea = transform.GetChild(0).gameObject;
-    }
-
-    // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Space))
+        if (timeBtwAttack <= 0)
         {
-            Attack();
-            Debug.Log("Player Attacked!");
-        }
-
-        if (attacking)
-        {
-            timer += Time.deltaTime;
-
-            if (timer >= timeToAttack)
+            // then you can attack
+            if (Input.GetKey(KeyCode.Space))
             {
-                timer = 0;
-                attacking = false;
-                attackArea.SetActive(attacking);
+                StartCoroutine(cameraShake.Shake(0.5f, 0.5f));
+                //playerAnim.SetTrigger("Attack");
+                Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
+                for (int i = 0; i < enemiesToDamage.Length; i++)
+                {
+                    enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage);
+                    Debug.Log("Enemy Taken damage");
+                }
+                timeBtwAttack = startTimeBtwAttack;
             }
-
         }
-    }
-
-    private void Attack()
-    {
-        attacking = true;
-        attackArea.SetActive(attacking);
-    }
-
-    // Assume this is being called when the player successfully hits the enemy
-    private void HitEnemy(Collider2D enemy)
-    {
-        EnemyHealth enemyHealth = enemy.GetComponent<EnemyHealth>();
-        if (enemyHealth != null)
+        else
         {
-            enemyHealth.TakeDamage(attackDamage);
+            timeBtwAttack -= Time.deltaTime;
         }
     }
 
+    void OnDrawGizmosSelected()
+    {
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(attackPos.position, attackRange);
+    }
 }

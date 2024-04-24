@@ -26,10 +26,13 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-
     void FixedUpdate()
     {
         Move();
+        if (moveDirection.x != 0)
+        {
+            FlipCharacter(moveDirection.x);
+        }
     }
 
     private void ProcessInputs()
@@ -37,7 +40,7 @@ public class PlayerMovement : MonoBehaviour
         float moveX = Input.GetAxisRaw("Horizontal");
         float moveY = Input.GetAxisRaw("Vertical");
         moveDirection = new Vector2(moveX, moveY).normalized;
-        
+
         if (Input.GetKeyDown(KeyCode.LeftShift) && !isDashing)
         {
             isDashing = true;
@@ -57,11 +60,21 @@ public class PlayerMovement : MonoBehaviour
             else
             {
                 isDashing = false;
+                rb.velocity = Vector2.zero; // Reset velocity after dashing
             }
         }
         else
         {
             rb.velocity = moveDirection * moveSpeed;
         }
+    }
+
+    private void FlipCharacter(float horizontalInput)
+    {
+        // Flip the player's sprite in x-direction based on moving left (-1) or right (1)
+        if (horizontalInput > 0)
+            transform.localScale = new Vector3(1, 1, 1);
+        else if (horizontalInput < 0)
+            transform.localScale = new Vector3(-1, 1, 1);
     }
 }
