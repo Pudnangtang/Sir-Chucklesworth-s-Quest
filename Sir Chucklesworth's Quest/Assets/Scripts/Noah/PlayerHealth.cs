@@ -8,6 +8,9 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public int maxHealth = 5;
 
+    public SpriteRenderer playerSr;
+    public PlayerDash playerdash;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +23,8 @@ public class PlayerHealth : MonoBehaviour
         health -= amoungt;
         if (health <= 0)
         {
-            Destroy(gameObject);
+            playerSr.enabled = false;
+            playerdash.enabled = false;
         }
     }
 }
