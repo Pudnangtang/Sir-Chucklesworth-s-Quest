@@ -15,14 +15,12 @@ public class NPCFollowTrigger : MonoBehaviour
 
     private void Update()
     {
+        // Check if the player is in range and F key is pressed
         if (playerInRange && Input.GetKeyDown(KeyCode.F))
         {
             if (npcFollow != null)
             {
-                npcFollow.following = !npcFollow.following; // Toggle the NPC's following state
-
-                // Update visualCue based on whether the NPC is now following or not
-                visualCue.SetActive(npcFollow.following);
+                npcFollow.ToggleFollowing(); // Call to toggle following state
             }
         }
     }
@@ -33,10 +31,7 @@ public class NPCFollowTrigger : MonoBehaviour
         {
             playerInRange = true;
             // Only activate the visual cue if the NPC is not currently following
-            if (npcFollow != null && !npcFollow.following)
-            {
-                visualCue.SetActive(true);
-            }
+            visualCue.SetActive(!npcFollow.following);
         }
     }
 
@@ -45,7 +40,7 @@ public class NPCFollowTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = false;
-            visualCue.SetActive(false);
+            visualCue.SetActive(false); // Always deactivate the visual cue when the player leaves the range
         }
     }
 }
