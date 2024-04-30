@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class EnemyHealth : MonoBehaviour
 {
@@ -9,12 +10,14 @@ public class EnemyHealth : MonoBehaviour
     public GameObject bloodEffect;
 
     public Vector2 knockbackForce; // The force applied to the enemy when hit
-    
+
     private Rigidbody2D rb; // Rigidbody2D component for applying forces
 
     [SerializeField] FloatingHealthBar healthBar;
     private Transform player;
     public float knockbackDuration;
+
+    public EnemyManager enemyManager;
 
     void Start()
     {
@@ -78,12 +81,10 @@ public class EnemyHealth : MonoBehaviour
 
     private void Die()
     {
-        // Here you can add what happens when the enemy dies, like playing an animation,
-        // disabling the enemy, or destroying the enemy object.
         Debug.Log("Enemy died!");
+        Destroy(gameObject); // Destroy the enemy object
 
-        // This line would destroy the enemy object when health reaches 0.
-        Destroy(gameObject);
+        enemyManager.EnemyDefeated();
     }
 }
 

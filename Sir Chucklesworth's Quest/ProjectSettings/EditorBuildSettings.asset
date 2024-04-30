@@ -5,9 +5,36 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Scenes/Level1.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/MainMenu.unity
+    guid: c9c387465cfda774392fde6d881a923e
+  - enabled: 1
+    path: Assets/Scenes/Cutscene1.unity
+    guid: 8bb82dd34b8e0b64fb970726fac77346
+  - enabled: 1
+    path: Assets/Scenes/Level 1.unity
+    guid: 7de4814396cd9f44dbca5fa11ad78fe4
+  - enabled: 1
+    path: Assets/Scenes/Cutscene2.unity
+    guid: 08d76223f78896c42b5eb111105fb4d4
+  - enabled: 1
+    path: Assets/Scenes/Level 2.unity
+    guid: e1fac6c288e3a844ea8be7f18615dd54
+  - enabled: 1
+    path: Assets/Scenes/Cutscene3.unity
+    guid: 565b4d00d1760ac44bd70d2dd599b02e
+  - enabled: 1
+    path: Assets/Scenes/Level 3.unity
+    guid: 45eca5c6dad8c6f4baf2a83d450ab85f
+  - enabled: 1
+    path: Assets/Scenes/Cutscene4.unity
+    guid: 440f627399a32ad4694e8eb3e5e801a5
+  - enabled: 1
+    path: Assets/Scenes/TheEnd.unity
+    guid: c95d7c098ad0b0d47aca69e26d4617ba
   - enabled: 1
     path: Assets/Scenes/GameOver.unity
     guid: bca70f16e7106494a91ee115ee4d044b
