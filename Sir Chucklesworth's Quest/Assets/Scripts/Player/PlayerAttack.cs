@@ -1,3 +1,4 @@
+using System.Collections;
 using UnityEngine;
 
 public class PlayerAttack : MonoBehaviour
@@ -10,23 +11,29 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public int damage;
 
-    public CameraShake cameraShake;
-    public Animator playerAnim;
+    public GameObject attackEffect;  // Assign your particle effect in the Unity Inspector
+
+    private bool canAttack = true;
+
+    [Header("Camera Shake Parameters")]
+    [SerializeField] private CameraShake cameraShake;
+    [SerializeField] private float shakeIntensity = 5;
+    [SerializeField] private float shakeTime = 1;
 
     void Update()
     {
         if (timeBtwAttack <= 0)
         {
             // then you can attack
-            if (Input.GetKey(KeyCode.Space))
+            if (Input.GetKeyDown(KeyCode.Space) && canAttack)
             {
-                StartCoroutine(cameraShake.Shake(0.5f, 0.5f));
-                //playerAnim.SetTrigger("Attack");
+                cameraShake.ShakeCamera(shakeIntensity, shakeTime);
                 Collider2D[] enemiesToDamage = Physics2D.OverlapCircleAll(attackPos.position, attackRange, whatIsEnemies);
                 for (int i = 0; i < enemiesToDamage.Length; i++)
                 {
                     enemiesToDamage[i].GetComponent<EnemyHealth>().TakeDamage(damage);
                     Debug.Log("Enemy Taken damage");
+                    Attack();
                 }
                 timeBtwAttack = startTimeBtwAttack;
             }
@@ -35,6 +42,22 @@ public class PlayerAttack : MonoBehaviour
         {
             timeBtwAttack -= Time.deltaTime;
         }
+    }
+
+    void Attack()
+    {
+        // Instantiate the particle effect
+        Instantiate(attackEffect, transform.position, Quaternion.identity);
+        canAttack = false;  // Prevent further attacks until ready
+        cameraShake.ShakeCamera(shakeIntensity, shakeTime);
+        // Optionally, reset canAttack after a delay or certain conditions
+        StartCoroutine(ResetAttack());
+    }
+
+    IEnumerator ResetAttack()
+    {
+        yield return new WaitForSeconds(1); // Wait for 1 second before allowing another attack
+        canAttack = true;
     }
 
     void OnDrawGizmosSelected()
