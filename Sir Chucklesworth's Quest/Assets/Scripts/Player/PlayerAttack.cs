@@ -11,6 +11,8 @@ public class PlayerAttack : MonoBehaviour
     public float attackRange;
     public int damage;
 
+    private AudioSource attackSound;
+
     public GameObject attackEffect;  // Assign your particle effect in the Unity Inspector
 
     private bool canAttack = true;
@@ -19,6 +21,11 @@ public class PlayerAttack : MonoBehaviour
     [SerializeField] private CameraShake cameraShake;
     [SerializeField] private float shakeIntensity = 5;
     [SerializeField] private float shakeTime = 1;
+
+    void Start()
+    {
+        attackSound = GetComponent<AudioSource>();  // Get the AudioSource component
+    }
 
     void Update()
     {
@@ -47,12 +54,23 @@ public class PlayerAttack : MonoBehaviour
     void Attack()
     {
         // Instantiate the particle effect
-        Instantiate(attackEffect, transform.position, Quaternion.identity);
-        canAttack = false;  // Prevent further attacks until ready
+        GameObject effectInstance = Instantiate(attackEffect, transform.position, Quaternion.identity);
+        ParticleSystem effectParticleSystem = effectInstance.GetComponent<ParticleSystem>();
+
+        if (effectParticleSystem != null)
+        {
+            var mainModule = effectParticleSystem.main;
+            mainModule.loop = false;
+
+            effectParticleSystem.Play();
+        }
+
+        canAttack = false; // Prevent further attacks until ready
         cameraShake.ShakeCamera(shakeIntensity, shakeTime);
-        // Optionally, reset canAttack after a delay or certain conditions
         StartCoroutine(ResetAttack());
+        attackSound.Play();  // Play the attack sound
     }
+
 
     IEnumerator ResetAttack()
     {
