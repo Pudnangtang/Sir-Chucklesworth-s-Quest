@@ -463,14 +463,14 @@ MonoBehaviour:
   dialogueText: {fileID: 2091004019}
   nameText: {fileID: 1373859418}
   dialogueEntries:
-  - speakerName: Sir Chucklesworth
+  - speakerName: Chuckle
     dialogueText: Behold, oh keeper of keys, for I shall not remain in this wretched
       cell! My legendary prowess shall liberate me!
   - speakerName: Guard
     dialogueText: Sure, whatever. Don't hurt yourself trying, buddy.
-  - speakerName: Sir Chucklesworth
+  - speakerName: Chuckle
     dialogueText: '*Sobs*'
-  - speakerName: Sir Chucklesworth
+  - speakerName: Chuckle
     dialogueText: '*Snort*'
   - speakerName: Knight
     dialogueText: Fear not, O King of the Arena! Your rescue is at hand, thanks to

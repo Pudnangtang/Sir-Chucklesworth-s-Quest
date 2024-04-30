@@ -466,7 +466,7 @@ MonoBehaviour:
   - speakerName: Guard 1
     dialogueText: Phew, you are one noble knight I will say, go ahead rest inside
       you derserve it.
-  - speakerName: Sir Chucklesworth
+  - speakerName: Chuckle
     dialogueText: See? Even the most formidable foes recognize the might of our cause!
   - speakerName: Knight
     dialogueText: Indeed, my king! It was our unyielding spirit that swayed them!

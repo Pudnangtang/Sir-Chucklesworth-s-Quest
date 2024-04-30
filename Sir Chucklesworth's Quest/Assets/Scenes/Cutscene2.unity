@@ -621,7 +621,7 @@ MonoBehaviour:
   dialogueText: {fileID: 2091004019}
   nameText: {fileID: 1373859418}
   dialogueEntries:
-  - speakerName: Sir Chucklesworth
+  - speakerName: Chuckle
     dialogueText: HAHAHA! Nothing can stop us now my boy! Our paths shimmer with
       gold!
   - speakerName: Knight
@@ -640,7 +640,7 @@ MonoBehaviour:
     dialogueText: That's the king! Get him!
   - speakerName: Knight
     dialogueText: My lord I will protect thee!
-  - speakerName: Sir Chucklesworth
+  - speakerName: Chuckle
     dialogueText: SAVE ME!!
   audioSource: {fileID: 497286474}
   typingSounds:
@@ -784,7 +784,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 2
-  m_BackGroundColor: {r: 0.2735849, g: 0.2735849, b: 0.2735849, a: 0}
+  m_BackGroundColor: {r: 0.21960784, g: 0.3372549, b: 0.17254902, a: 0}
   m_projectionMatrixMode: 1
   m_GateFitMode: 2
   m_FOVAxisMode: 0
