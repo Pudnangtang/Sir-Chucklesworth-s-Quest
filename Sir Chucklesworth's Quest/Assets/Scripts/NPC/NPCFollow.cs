@@ -64,6 +64,6 @@ public class NPCFollow : MonoBehaviour
 
     void StopFollowing()
     {
-        // Additional logic to execute when NPC stops following can be added here
+
     }
 }

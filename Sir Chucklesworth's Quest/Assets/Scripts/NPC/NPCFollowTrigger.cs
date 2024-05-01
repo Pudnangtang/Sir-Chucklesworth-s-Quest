@@ -10,7 +10,7 @@ public class NPCFollowTrigger : MonoBehaviour
     private void Awake()
     {
         visualCue.SetActive(false);
-        npcFollow = FindObjectOfType<NPCFollow>(); // Cache the NPC's follow script
+        npcFollow = FindObjectOfType<NPCFollow>(); 
     }
 
     private void Update()
@@ -20,7 +20,7 @@ public class NPCFollowTrigger : MonoBehaviour
         {
             if (npcFollow != null)
             {
-                npcFollow.ToggleFollowing(); // Call to toggle following state
+                npcFollow.ToggleFollowing(); 
             }
         }
     }
@@ -30,7 +30,7 @@ public class NPCFollowTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = true;
-            // Only activate the visual cue if the NPC is not currently following
+            // Only activate the visual cue if the NPC is not 
             visualCue.SetActive(!npcFollow.following);
         }
     }
@@ -40,7 +40,7 @@ public class NPCFollowTrigger : MonoBehaviour
         if (collider.gameObject.tag == "Player")
         {
             playerInRange = false;
-            visualCue.SetActive(false); // Always deactivate the visual cue when the player leaves the range
+            visualCue.SetActive(false); 
         }
     }
 }

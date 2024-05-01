@@ -14,7 +14,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        canFollow = false;  // Ensure initial state is consistent
+        canFollow = false;  //start
     }
 
     void Update()
@@ -71,7 +71,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void FlipCharacter(float horizontalInput)
     {
-        // Flip the player's sprite in x-direction based on moving left (-1) or right (1)
+       //flip player
         if (horizontalInput > 0)
             transform.localScale = new Vector3(1, 1, 1);
         else if (horizontalInput < 0)

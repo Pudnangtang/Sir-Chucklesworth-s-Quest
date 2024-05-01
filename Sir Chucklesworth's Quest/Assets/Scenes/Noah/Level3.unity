@@ -137,6 +137,7 @@ GameObject:
   - component: {fileID: 122264847}
   - component: {fileID: 122264846}
   - component: {fileID: 122264845}
+  - component: {fileID: 122264848}
   m_Layer: 0
   m_Name: Obstacles
   m_TagString: Untagged
@@ -198,7 +199,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -2129224037
-  m_SortingLayer: 6
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00016325712, y: 0, z: 0}
@@ -1193,6 +1194,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!210 &122264848
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 122264841}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1213160911
 GameObject:
   m_ObjectHideFlags: 0
@@ -1204,6 +1217,7 @@ GameObject:
   - component: {fileID: 1213160912}
   - component: {fileID: 1213160914}
   - component: {fileID: 1213160913}
+  - component: {fileID: 1213160915}
   m_Layer: 0
   m_Name: Paths
   m_TagString: Untagged
@@ -1265,7 +1279,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1228467835
-  m_SortingLayer: 5
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00016325712, y: 0, z: 0}
@@ -1439,6 +1453,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!210 &1213160915
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1213160911}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
 --- !u!1 &1271593055
 GameObject:
   m_ObjectHideFlags: 0
@@ -1453,6 +1479,7 @@ GameObject:
   - component: {fileID: 1271593061}
   - component: {fileID: 1271593060}
   - component: {fileID: 1271593059}
+  - component: {fileID: 1271593062}
   m_Layer: 0
   m_Name: Gaps
   m_TagString: Untagged
@@ -1514,7 +1541,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1440599261
-  m_SortingLayer: 3
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00016325712, y: 0, z: 0}
@@ -1968,6 +1995,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!210 &1271593062
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1271593055}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 2
+  m_SortAtRoot: 0
 --- !u!1 &1308637478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1982,6 +2021,7 @@ GameObject:
   - component: {fileID: 1308637484}
   - component: {fileID: 1308637483}
   - component: {fileID: 1308637482}
+  - component: {fileID: 1308637485}
   m_Layer: 0
   m_Name: Cliff
   m_TagString: Untagged
@@ -2043,7 +2083,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -1502110455
-  m_SortingLayer: 4
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00016325712, y: 0, z: 0}
@@ -2521,6 +2561,18 @@ TilemapCollider2D:
   m_MaximumTileChangeCount: 1000
   m_ExtrusionFactor: 0
   m_UseDelaunayMesh: 0
+--- !u!210 &1308637485
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1308637478}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 1
+  m_SortAtRoot: 0
 --- !u!1 &1415269529
 GameObject:
   m_ObjectHideFlags: 0
@@ -2532,6 +2584,7 @@ GameObject:
   - component: {fileID: 1415269530}
   - component: {fileID: 1415269532}
   - component: {fileID: 1415269531}
+  - component: {fileID: 1415269533}
   m_Layer: 0
   m_Name: Ground
   m_TagString: Untagged
@@ -2593,7 +2646,7 @@ TilemapRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 1884180243
-  m_SortingLayer: 2
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0.00016325712, y: 0, z: 0}
@@ -5591,6 +5644,18 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!210 &1415269533
+SortingGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1415269529}
+  m_Enabled: 1
+  m_SortingLayerID: 0
+  m_SortingLayer: 0
+  m_SortingOrder: 0
+  m_SortAtRoot: 0
 --- !u!1 &1508436884
 GameObject:
   m_ObjectHideFlags: 0

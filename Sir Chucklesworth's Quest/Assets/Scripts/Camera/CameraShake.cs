@@ -13,14 +13,14 @@ public class CameraShake : MonoBehaviour
         if (virtualCamera == null)
         {
             Debug.LogError("CinemachineVirtualCamera is not assigned.");
-            return; // Stop further execution if virtualCamera is null
+            return; 
         }
 
         virtualCameraNoise = virtualCamera.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
         if (virtualCameraNoise == null)
         {
             Debug.LogError("CinemachineBasicMultiChannelPerlin component not found on virtual camera.");
-            return; // Stop further execution if virtualCameraNoise is null
+            return; 
         }
 
         ResetIntensity();
@@ -32,7 +32,7 @@ public class CameraShake : MonoBehaviour
         if (virtualCameraNoise == null)
         {
             Debug.LogError("Attempting to shake camera, but virtualCameraNoise is not set.");
-            return; // Prevent further execution and avoid the NullReferenceException
+            return; 
         }
 
         virtualCameraNoise.m_AmplitudeGain = intensity;

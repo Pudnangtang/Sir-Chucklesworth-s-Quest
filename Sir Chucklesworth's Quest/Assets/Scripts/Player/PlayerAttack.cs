@@ -53,7 +53,7 @@ public class PlayerAttack : MonoBehaviour
 
     void Attack()
     {
-        // Instantiate the particle effect
+        //the particle effect
         GameObject effectInstance = Instantiate(attackEffect, transform.position, Quaternion.identity);
         ParticleSystem effectParticleSystem = effectInstance.GetComponent<ParticleSystem>();
 
@@ -65,7 +65,7 @@ public class PlayerAttack : MonoBehaviour
             effectParticleSystem.Play();
         }
 
-        canAttack = false; // Prevent further attacks until ready
+        canAttack = false; 
         cameraShake.ShakeCamera(shakeIntensity, shakeTime);
         StartCoroutine(ResetAttack());
         attackSound.Play();  // Play the attack sound
@@ -74,7 +74,7 @@ public class PlayerAttack : MonoBehaviour
 
     IEnumerator ResetAttack()
     {
-        yield return new WaitForSeconds(1); // Wait for 1 second before allowing another attack
+        yield return new WaitForSeconds(1); 
         canAttack = true;
     }
 

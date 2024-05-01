@@ -9,7 +9,7 @@ public class EnemyHealth : MonoBehaviour
 
     public GameObject bloodEffect;
 
-    public Vector2 knockbackForce; // The force applied to the enemy when hit
+    public Vector2 knockbackForce; 
 
     private Rigidbody2D rb; // Rigidbody2D component for applying forces
 
@@ -25,8 +25,8 @@ public class EnemyHealth : MonoBehaviour
         healthBar.UpdateHealthBar(currentHealth, maxHealth);
         healthBar = GetComponentInChildren<FloatingHealthBar>();
         rb = GetComponent<Rigidbody2D>(); // Make sure the enemy has a Rigidbody2D component
-        rb.drag = 5; // Adjust the drag value as necessary
-        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player"); // Make sure the player GameObject is tagged as "Player" in the Editor
+        rb.drag = 5; 
+        GameObject playerGameObject = GameObject.FindGameObjectWithTag("Player"); 
         if (playerGameObject != null)
         {
             player = playerGameObject.transform;
@@ -50,8 +50,7 @@ public class EnemyHealth : MonoBehaviour
         }
         else
         {
-            // Optional: Add some logic here for what happens when the enemy takes damage
-            // but is not yet dead, like playing a damage animation.
+            
         }
     }
 
